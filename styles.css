@@ -7,41 +7,107 @@
 
 body {
   height: 100vh;
-  background-color: #000;
-  /* background-image: url("https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1517&q=80"); */
+  background-color: #af9164;
   background-size: cover;
   background-position: center;
 }
+
+/* loader aca usamos una imagen creada con css y despues un poco de javascript para luego cambiar la clase a hidden y por ultimo removerla */
+
+@keyframes wave {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffefdb;
+  transition: opacity 0.75s, visibility 0.75s;
+}
+
+.cup {
+  position: relative;
+  width: 220px;
+  height: 180px;
+  border: 8px solid #ffefdb;
+  box-shadow: 0 0 0 12px #352a22;
+  border-radius: 10px 10px 60px 75px;
+  background: url(./img/coffee.png);
+  background-repeat: repeat-x;
+  background-position: 0 130px;
+  animation: filling 4s infinite;
+}
+
+@keyframes filling {
+  0%,
+  100% {
+    background-position: 0 130px;
+  }
+  50% {
+    background-position: 600px -70px;
+  }
+}
+
+.cup .cup-handle {
+  position: absolute;
+  top: 10px;
+  right: -75px;
+  width: 65px;
+  height: 65px;
+  border: 8px solid #352a22;
+  border-radius: 20px 10px 50px 20px;
+}
+
+.loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/*-------------------------------------------------- */
+
 li {
   list-style: none;
 }
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: black;
   font-size: 1rem;
 }
 
 a:hover {
-  color: #008d62;
+  color: #6f1a07;
 }
 
 hr {
-  border: 1px solid #008d62;
+  border: 1px solid #6f1a07;
 }
 /* header */
 
-header {
-  position: relative;
-  padding: 0 2rem;
-}
 .navbar {
   width: 100%;
   height: 60px;
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
+  display: none;
   justify-content: space-between;
+  padding: 0 2rem;
   align-items: center;
 }
 
@@ -55,13 +121,13 @@ header {
   gap: 2rem;
 }
 .navbar .toggle_btn {
-  color: #fff;
+  color: #6f1a07;
   font-size: 1.5rem;
   cursor: pointer;
   display: none;
 }
 .action_btn {
-  background-color: #414c49;
+  background-color: #6f1a07;
   color: #fff;
   padding: 0.5rem 1rem;
   border: none;
@@ -74,7 +140,7 @@ header {
 .fa,
 .footer-menu a:hover {
   scale: 1.05;
-  color: #008d62;
+  color: #6f1a07;
 }
 
 .action_btn:active {
@@ -85,11 +151,11 @@ header {
 .dropdown_menu {
   display: none;
   position: absolute;
-  right: 2rem;
+  right: 1rem;
   top: 60px;
   width: 300px;
   height: 0px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #f7f3e3;
   backdrop-filter: blur(15px);
   border-radius: 10px;
   overflow: hidden;
@@ -146,7 +212,7 @@ header {
 @media (max-width: 576px) {
   .dropdown_menu {
     left: 2rem;
-    width: unset;
+    /* width: unset; */
   }
 }
 
@@ -162,6 +228,7 @@ header {
   position: fixed;
   bottom: 0;
   left: 0;
+  display: none;
 }
 
 .container {
@@ -230,5 +297,5 @@ header {
 
 .fab:hover {
   scale: 1.05;
-  color: #008d62;
+  color: #f7f3e3;
 }

@@ -178,6 +178,35 @@ hr {
   justify-content: center;
 }
 
+
+/*about*/
+.about {
+  position: relative;
+  padding: 0 2rem;
+  top: 5rem;
+  color: #333333;
+}
+.nosotros{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #C3AB8A;
+
+}
+.título{
+  text-align: center;
+  color: #7D2216;
+}
+.justificado{
+  text-align: justify;
+}
+/*fin about*/
+
+
 /* Responsive */
 
 @media (max-width: 992px) {
